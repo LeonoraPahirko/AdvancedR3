@@ -17,3 +17,5 @@ Title: AdvancedR3
 Suggests: 
     gitcreds,
     usethis
+URL: https://github.com/LeonoraPahirko/AdvancedR3
+BugReports: https://github.com/LeonoraPahirko/AdvancedR3/issues
