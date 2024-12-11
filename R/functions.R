@@ -34,7 +34,7 @@ descriptive_stats <- function(data) {
 #'
 plot_distributions <- function(data) {
   data |>
-    ggplot2::ggplot(aes(x = value)) +
+    ggplot2::ggplot(ggplot2::aes(x = value)) +
     ggplot2::geom_histogram() +
-    ggplot2::facet_wrap(vars(metabolite), scales = "free")
+    ggplot2::facet_wrap(ggplot2::vars(metabolite), scales = "free")
 }
