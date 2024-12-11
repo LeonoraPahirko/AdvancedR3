@@ -1,6 +1,6 @@
 ---
-title: "Draft Quarto document"
-author: "Your Name"
+title: "Notes for the course R3"
+author: "Leonora Pahirko"
 format: html
 ---
 
@@ -79,6 +79,8 @@ tar_read(df_stats_by_metabolite) |>
     mutate(MeanSD = glue::glue("{value_mean} ({value_sd})")) |> # R object in {...}, everything outside {} is text
     select(Metabolite = metabolite, `Mean (SD)` = MeanSD)
 
+
+# Use if you don't want to upload to GitHub (will not be version control as well)
 use_git_ignore("doc/notes.qmd") # To not upload to github
 
 ```
