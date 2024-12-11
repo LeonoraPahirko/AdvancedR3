@@ -12,7 +12,9 @@ descriptive_stats <- function(data) {
         value,
         list(
           mean = mean, # This is the function name
-          sd = sd
+          sd = sd,
+          median = median,
+          iqr = IQR
         )
       )
     ) |>
