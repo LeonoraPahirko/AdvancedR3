@@ -50,3 +50,21 @@ column_values_to_snake_case <- function(data, columns) {
   data |>
     dplyr::mutate(dplyr::across({{ columns }}, snakecase::to_snake_case))
 }
+
+
+
+
+#' Title
+#'
+#' @param data
+#'
+#' @return A data.frame/tibble
+metabolites_to_wider <- function(data) {
+    data |>
+        tidyr::pivot_wider(
+            names_from = metabolite,
+            values_from = value,
+            values_fn = mean,
+            names_prefix = "metabolite_"
+        )
+}
