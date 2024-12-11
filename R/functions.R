@@ -31,10 +31,22 @@ descriptive_stats <- function(data) {
 #' @param data
 #'
 #' @return A plot object
-#'
 plot_distributions <- function(data) {
   data |>
     ggplot2::ggplot(ggplot2::aes(x = value)) +
     ggplot2::geom_histogram() +
     ggplot2::facet_wrap(ggplot2::vars(metabolite), scales = "free")
+}
+
+
+
+#' Title: Converting column variables to snake case
+#'
+#' @param data The lipidomics data
+#' @param columns The columns you want to convert
+#'
+#' @return A data.frame/tibble
+column_values_to_snake_case <- function(data, columns) {
+  data |>
+    dplyr::mutate(dplyr::across({{ columns }}, snakecase::to_snake_case))
 }
