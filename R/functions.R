@@ -22,3 +22,17 @@ descriptive_stats <- function(data) {
       )
     )
 }
+
+
+#' Title
+#'
+#' @param data
+#'
+#' @return A plot object
+#'
+plot_distributions <- function(data) {
+  data |>
+    ggplot2::ggplot(aes(x = value)) +
+    ggplot2::geom_histogram() +
+    ggplot2::facet_wrap(vars(metabolite), scales = "free")
+}
