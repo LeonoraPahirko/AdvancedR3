@@ -4,3 +4,4 @@
 .Rbuildignore
 data-raw/nmr-omics/
 _targets.yaml
+doc/notes.qmd

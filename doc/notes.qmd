@@ -72,4 +72,13 @@ list(
       command = descriptive_stats(lipidomics)
   )
 )
+
+
+
+tar_read(df_stats_by_metabolite) |> 
+    mutate(MeanSD = glue::glue("{value_mean} ({value_sd})")) |> # R object in {...}, everything outside {} is text
+    select(Metabolite = metabolite, `Mean (SD)` = MeanSD)
+
+use_git_ignore("doc/notes.qmd") # To not upload to github
+
 ```
