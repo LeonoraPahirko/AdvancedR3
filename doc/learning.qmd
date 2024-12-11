@@ -1,6 +1,6 @@
 ---
 title: "Draft Quarto document"
-author: "Your Name"
+author: "Leonora Pahirko"
 format: html
 ---
 
