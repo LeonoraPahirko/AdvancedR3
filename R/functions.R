@@ -147,3 +147,20 @@ generate_model_results <- function(data) {
     parsnip::fit(data) |>
     tidy_model_output()
 }
+
+
+
+
+#' Calculating GLM model estimates
+#'
+#' @param data The lipidomics dataset
+#'
+#' @return A data frame
+calculate_estimates <- function(data) {
+  data |>
+    # Code from right before the exercise that creates the results
+    split_by_metabolites() |>
+    purrr::map(generate_model_results) |>
+    purrr::list_rbind() |>
+    dplyr::filter(stringr::str_detect(term, "metabolite_"))
+}

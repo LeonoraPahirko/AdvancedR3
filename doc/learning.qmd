@@ -41,9 +41,6 @@ lipidomics_wide
 ## Running multiple models
 
 ```{r}
-lipidomics |> 
-    split_by_metabolites() |>
-    map(generate_model_results) |>
-    list_rbind() |>
-    filter(str_detect(term, "metabolite_"))
+lipidomics |>
+    calculate_estimates()
 ```
