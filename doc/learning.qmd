@@ -43,11 +43,8 @@ lipidomics_wide
 ```{r}
 model_estimates <- lipidomics |>
     calculate_estimates()
-```
 
-## Fixing metabolite names
+model_estimates
 
-```{r}
-lipidomics |>
-    calculate_estimates()
+
 ```

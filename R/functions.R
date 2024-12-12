@@ -157,7 +157,7 @@ generate_model_results <- function(data) {
 #'
 #' @return A data frame
 calculate_estimates <- function(data) {
-  model_etimates <- data |>
+  model_estimates <- data |>
     # Code from right before the exercise that creates the results
     split_by_metabolites() |>
     purrr::map(generate_model_results) |>
