@@ -171,3 +171,23 @@ calculate_estimates <- function(data) {
     dplyr::distinct(metabolite, term) |>
     dplyr::right_join(model_estimates, by = "term")
 }
+
+
+
+#' Visualizing GLM results with pointrange geometry
+#'
+#' @param results The model estimates
+#'
+#' @return A plot object
+plot_estimates <- function(results) {
+  results |>
+    # Plot code here:
+    ggplot2::ggplot(ggplot2::aes(
+      x = estimate,
+      y = metabolite,
+      xmin = estimate - std.error,
+      xmax = estimate + std.error
+    )) +
+    ggplot2::geom_pointrange() +
+    ggplot2::coord_fixed(xlim = c(0, 5))
+}
