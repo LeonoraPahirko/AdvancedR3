@@ -41,6 +41,13 @@ lipidomics_wide
 ## Running multiple models
 
 ```{r}
+model_estimates <- lipidomics |>
+    calculate_estimates()
+```
+
+## Fixing metabolite names
+
+```{r}
 lipidomics |>
     calculate_estimates()
 ```

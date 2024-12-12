@@ -157,10 +157,17 @@ generate_model_results <- function(data) {
 #'
 #' @return A data frame
 calculate_estimates <- function(data) {
-  data |>
+  model_etimates <- data |>
     # Code from right before the exercise that creates the results
     split_by_metabolites() |>
     purrr::map(generate_model_results) |>
     purrr::list_rbind() |>
     dplyr::filter(stringr::str_detect(term, "metabolite_"))
+  data |>
+    dplyr::select(metabolite) |>
+    dplyr::mutate(term = metabolite) |>
+    column_values_to_snake_case(term) |>
+    dplyr::mutate(term = stringr::str_c("metabolite_", term)) |>
+    dplyr::distinct(metabolite, term) |>
+    dplyr::right_join(model_estimates, by = "term")
 }
